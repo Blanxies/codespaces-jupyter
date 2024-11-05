@@ -1,4 +1,6 @@
-pip install streamlit requests
+#pip install streamlit requests (Streamlit 없으면 설치, REST API 방식)
+#pip install streamlit azure-cognitiveservices-vision-customvision pillow (AZURE SDK 클라이언트로 API 호출, 후의 URL 입력 등 코드 간결화)
+
 import streamlit as st
 import requests
 from io import BytesIO
@@ -13,10 +15,10 @@ HEADERS = {
 }
 
 # Streamlit UI 설정
-st.title("Azure Custom Vision Classification with Streamlit")
-st.write("Azure Custom Vision 모델을 사용한 이미지 분류 예시")
+st.title("초등 과학실 실험도구 안내 사이트")
+st.write("Azure Custom Vision의 분류 모델을 사용했습니다")
 
-uploaded_file = st.file_uploader("이미지를 업로드하세요", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("실험 도구 사진을 업로드하세요", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
